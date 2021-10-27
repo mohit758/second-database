@@ -17,31 +17,31 @@ function App() {
   const [laptopList, setLaptopList] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/read").then((response) => {
+    Axios.get("https://laxus-database.herokuapp.com/read").then((response) => {
       setLaptopList(response.data);
     })
   }, []);
 
 
   const addData = () => {
-    Axios.post("http://localhost:3001/insert", { laptopName: laptopName, laptopPrice: laptopPrice, laptopFeedback: laptopFeedback });
+    Axios.post("https://laxus-database.herokuapp.com/insert", { laptopName: laptopName, laptopPrice: laptopPrice, laptopFeedback: laptopFeedback });
 
   };
 
   const updateName = (id) => {
-    Axios.put("http://localhost:3001/updatename", {
+    Axios.put("https://laxus-database.herokuapp.com/updatename", {
       id: id, newLaptopName: newLaptopName
     });
   };
 
   const updatePrice = (id) => {
-    Axios.put("http://localhost:3001/updateprice", {
+    Axios.put("https://laxus-database.herokuapp.com/updateprice", {
       id: id, newLaptopPrice: newLaptopPrice
     });
   };
 
   const updateFeedback = (id) => {
-    Axios.put("http://localhost:3001/updatefeedback", {
+    Axios.put("https://laxus-database.herokuapp.com/updatefeedback", {
       id: id, newLaptopFeedback: newLaptopFeedback
     });
   };
@@ -49,7 +49,7 @@ function App() {
 
 
   const deleteLaptop = (id) => {
-    Axios.delete(`http://localhost:3001/delete/${id}`);
+    Axios.delete(`https://laxus-database.herokuapp.com/delete/${id}`);
   };
 
   return (
